@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '2.3.11'
 
-gem 'active-fedora', '2.0.0'  
+gem 'active-fedora', '>=2.2.0'
 gem 'authlogic', '>=0.1.0'
 gem 'builder'
 gem 'columnize'
@@ -45,7 +45,7 @@ source 'http://gemcutter.org'
 
 gem 'block_helpers'
 
-group :development, :test do
+group :development, :development_local, :test do
   gem 'ruby-debug'
   gem 'ruby-debug-base'
   gem 'rspec', '<2.0.0'  

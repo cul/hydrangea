@@ -8,24 +8,18 @@ GEM
     actionpack (2.3.11)
       activesupport (= 2.3.11)
       rack (~> 1.1.0)
-    active-fedora (2.0.0)
-      activeresource (< 3.0.0)
-      activeresource (< 3.0.0)
+    active-fedora (2.2.0)
+      active-fedora
+      activeresource
       equivalent-xml
+      facets
       mediashelf-loggable
       mime-types (>= 1.16)
-      mime-types (>= 1.16)
-      multipart-post
       multipart-post
       nokogiri
-      nokogiri
-      om (>= 1.0)
       om (>= 1.0)
       solr-ruby (>= 0.0.6)
-      solr-ruby (>= 0.0.6)
-      solrizer (>= 1.0.0, < 2.0.0)
-      solrizer (>= 0.3.0)
-      xml-simple (>= 1.0.12)
+      solrizer (> 1.0.0)
       xml-simple (>= 1.0.12)
     activerecord (2.3.11)
       activesupport (= 2.3.11)
@@ -130,7 +124,7 @@ PLATFORMS
 
 DEPENDENCIES
   RedCloth (= 4.2.2)
-  active-fedora (= 2.0.0)
+  active-fedora (>= 2.2.0)
   authlogic (>= 0.1.0)
   block_helpers
   builder

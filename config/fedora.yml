@@ -3,6 +3,12 @@ development:
     url: http://fedoraAdmin:fedoraAdmin@127.0.0.1:8983/fedora
   solr:
     url: http://localhost:8983/solr/development
+development_local:
+  fedora:
+    url: https://hydra:h4drang3a@repository2.cul.columbia.edu:8443/fedora
+    #url: https://fedoraAdmin:f%2BBULUS*%5E@repository2.cul.columbia.edu:8443/fedora
+  solr:
+    url: http://localhost:8983/solr/development
 test: &TEST  
   fedora:
     url: http://fedoraAdmin:fedoraAdmin@127.0.0.1:8983/fedora

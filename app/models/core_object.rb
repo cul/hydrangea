@@ -32,7 +32,7 @@ class CoreObject < ActiveFedora::FedoraObject
     @descriptions
   end
 
-  def description_attach(obj)
+  def descriptions_append(obj)
     unless obj.kind_of? ActiveFedora::Base
       begin
         obj = ActiveFedora::Base.load_instance(obj)

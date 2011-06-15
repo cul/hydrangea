@@ -1,11 +1,6 @@
 require "hydra"
 
-module Cul
-module Fedora
-module Core
-class MODSMetadata < Cul::Fedora::Core::CoreObject
-  
-  include Hydra::ModelMethods
+class MODSMetadata < CoreObject
   
   has_datastream :name => "CONTENT", :mimeType => 'text/xml'
 
@@ -13,7 +8,4 @@ class MODSMetadata < Cul::Fedora::Core::CoreObject
     super(solr_doc, opts)
     solr_doc
   end
-end
-end
-end
 end

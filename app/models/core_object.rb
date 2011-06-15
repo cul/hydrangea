@@ -1,20 +1,21 @@
 require "hydra"
 
-module Cul
-module Fedora
-module Core
-class CoreObject < ActiveFedora::FedoraObject
+class CoreObject < ActiveFedora::Base
   
   include Hydra::ModelMethods
-  
-  has_relationship "metadata", :metadata_for, :inbound => true
+  has_relationship "descriptions", :metadata_for, :inbound => true
+
+  has_metadata :name => "ModsMetadata", :type=> InboundModsMetadataDatastream,
+               {|ds|
+                 ds.load_for(self.pid, CoreObject.predicate_lookup(:metadata_for))
+               }
 
   def initialize(attrs={})
     super(attrs)
     @descriptions = {}
     inbound_relationships(:objects).each_pair do |predicate, objects|
       objects.each do |obj|
-        if predicate == :metadata_for
+        if predicate == CoreObject.predicate_lookup(:metadata_for)
           self.description_attach(obj)
         end
       end
@@ -26,12 +27,6 @@ class CoreObject < ActiveFedora::FedoraObject
     solr_doc
   end
   
-  # @param [Hash] opts -- same options as auto-generated methods for relationships (ie. :response_format)
-  # @return [Array of ActiveFedora objects, Array of PIDs, or Solr::Result] -- same options as auto-generated methods for relationships (ie. :response_format)
-  def descriptions(opts={})
-    @descriptions
-  end
-
   def descriptions_append(obj)
     unless obj.kind_of? ActiveFedora::Base
       begin
@@ -43,7 +38,8 @@ class CoreObject < ActiveFedora::FedoraObject
     end
     obj.add_relationship(:metadata_for, self)
     descriptions[obj.pid] = obj
-end
-end
-end
+  end
+  def descriptions_remove(obj)
+    # SemanticNode.remove_relationship ?
+  end
 end

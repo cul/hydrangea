@@ -1,10 +1,12 @@
-# This is a sample config file that does not have multiple solr instances. You will also need to be sure to
-# edit the fedora.yml file to match the solr URL for active-fedora. 
 development:
-  url: http://localhost:8983/solr/development
+    url: http://testcat.cul.columbia.edu:8983/solr-1.5/hydrangea
 test: &TEST
-  url: http://127.0.0.1:8983/solr/test
+    url: http://testcat.cul.columbia.edu:8983/solr-1.5/hydrangea
+passenger_dev:
+    url: http://testcat.cul.columbia.edu:8983/solr-1.5/hydrangea
+passenger_test:
+    url: http://katana.cul.columbia.edu:8080/solr-1.5/scv_test
+passenger_prod:
+    url: http://macana.cul.columbia.edu:8080/solr-1.5/scv_prod
 cucumber:
-  <<: *TEST
-production:
-  url: http://your.production.server:8080/bl_solr/core0 
+    <<: *TEST

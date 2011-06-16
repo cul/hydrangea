@@ -1,16 +1,15 @@
 require "hydra"
 
 class CoreObject < ActiveFedora::Base
-  
+
   include Hydra::ModelMethods
   has_relationship "descriptions", :metadata_for, :inbound => true
 
-  has_metadata :name => "ModsMetadata", :type=> InboundModsMetadataDatastream,
-               {|ds|
-                 ds.load_for(self.pid, CoreObject.predicate_lookup(:metadata_for))
-               }
 
   def initialize(attrs={})
+  CoreObject.has_metadata :name => "ModsMetadata", :type=> Cul::InboundModsMetadataDatastream do |ds|
+    ds.load_for(self.pid, CoreObject.predicate_lookup(:metadata_for))
+  end
     super(attrs)
     @descriptions = {}
     inbound_relationships(:objects).each_pair do |predicate, objects|
@@ -21,12 +20,12 @@ class CoreObject < ActiveFedora::Base
       end
     end
   end
-  
+
   def to_solr(solr_doc=Hash.new,opts={})
     super(solr_doc, opts)
     solr_doc
   end
-  
+
   def descriptions_append(obj)
     unless obj.kind_of? ActiveFedora::Base
       begin

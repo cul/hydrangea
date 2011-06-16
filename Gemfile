@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '2.3.5'
+gem 'rails', '2.3.11'
 
 gem 'active-fedora', '2.0.0'  
 gem 'authlogic', '>=0.1.0'
@@ -14,7 +14,7 @@ gem 'facets', '2.8.4'
 gem 'haml'
 gem 'httparty'
 gem 'json_pure', '>1.4.3'
-gem 'linecache'
+gem 'linecache', '0.43'
 gem 'marc'
 gem 'mime-types'
 gem 'multipart-post'

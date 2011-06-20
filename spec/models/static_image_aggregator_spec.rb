@@ -13,7 +13,7 @@ describe StaticImageAggregator do
   it "Should be a kind of ActiveFedora::Base and a kind of CoreObject and a kind of Aggregator" do
     @hydra_content.should be_kind_of(ActiveFedora::Base)
     @hydra_content.should be_kind_of(CoreObject)
-    @hydra_content.should be_kind_of(Aggregator)
+    @hydra_content.should be_kind_of(Cul::Aggregator)
   end
   
   it "should include Hydra Model Methods" do
@@ -22,10 +22,10 @@ describe StaticImageAggregator do
   end
   
   it "should have accessors for its descriptions and constituent parts" do
-    @hydra_content.should respond_to(:has_parts?)
-    @hydra_content.should respond_to(:has_metadata?)
-    @hydra_content.should respond_to(:parts)
-    @hydra_content.should respond_to(:metadata)
+    @hydra_content.should respond_to(:has_members?)
+    @hydra_content.should respond_to(:has_descriptions?)
+    @hydra_content.should respond_to(:members)
+    @hydra_content.should respond_to(:descriptions)
   end
   
 end

@@ -8,8 +8,9 @@ describe CoreObject do
     @hydra_content = CoreObject.new
   end
 
-  it "Should be a kind of ActiveFedora::Base" do
+  it "Should be a kind of ActiveFedora::Base and Cul::Core" do
     @hydra_content.should be_kind_of(ActiveFedora::Base)
+    @hydra_content.should be_kind_of(Cul::Core)
   end
   
   it "should include Hydra Model Methods" do
@@ -18,8 +19,8 @@ describe CoreObject do
   end
   
   it "should have accessors for its descriptions" do
-    @hydra_content.should respond_to(:has_metadata?)
-    @hydra_content.should respond_to(:metadata)
+    @hydra_content.should respond_to(:has_descriptions?)
+    @hydra_content.should respond_to(:descriptions)
   end
   
 end

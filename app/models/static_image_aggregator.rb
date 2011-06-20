@@ -1,8 +1,12 @@
 require "hydra"
 
-class StaticImageAggregator < Aggregator
+class StaticImageAggregator < CoreObject
+  include ActiveFedora::SemanticNode
+
+  include Cul::Aggregator
+
+  include Cul::Image
   
-  has_relationship "parts", :member_of, :inbound => true
   
   def to_solr(solr_doc=Hash.new,opts={})
     super(solr_doc, opts)

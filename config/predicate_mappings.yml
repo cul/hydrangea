@@ -41,7 +41,7 @@
   info:fedora/fedora-system:def/model#:
     :has_model: hasModel
   http://purl.oclc.org/NET/CUL/: 
-    :is_metadata_for: metadataFor
+    :metadata_for: metadataFor
     :is_member_of: memberOf
   http://purl.oclc.org/NET/CUL/RESOURCES/STILLIMAGE/BASIC: 
     :image_width: imageWidth
